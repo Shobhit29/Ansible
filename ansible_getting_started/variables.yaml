@@ -1,0 +1,30 @@
+---
+- name: test variables
+  hosts: vm1
+  vars: 
+    http_port: 80
+  vars_files:
+     - external_file.yaml
+
+  tasks:
+  - name: Check variables
+    ansible.builtin.debug:
+      msg: "{{http_port}}"
+  
+  - name: check Ip
+    ansible.builtin.debug:
+      msg: "{{ ansible_default_ipv4.address }}"
+    register: ipv4   
+
+  - name: get external variables
+    ansible.builtin.debug:
+       msg: "{{ipv4}}"
+
+  - name: get file name
+    ansible.builtin.debug:
+         msg: "{{list_of_files[1]}}" 
+         
+
+  - name: get dict name
+    ansible.builtin.debug:
+      msg: "{{dict_of_var}}"

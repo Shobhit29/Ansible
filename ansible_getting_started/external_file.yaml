@@ -1,0 +1,8 @@
+---
+username: admin
+list_of_files:
+  - file1
+  - file2 
+dict_of_var:
+    grapes: green
+    apple: red
